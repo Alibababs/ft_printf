@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 14:19:00 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/30 19:20:07 by alibaba          ###   ########.fr       */
+/*   Created: 2024/05/25 19:23:16 by alibaba           #+#    #+#             */
+/*   Updated: 2024/05/25 20:19:56 by alibaba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	*str;
 
-int	ft_printfchar(char c);
-int	ft_printfstr(char *str);
-int	ft_printfnbr(int n);
-
-#endif
+	str = (unsigned char *)s;
+	while (n--)
+	{
+		if (*str == (unsigned char)c)
+			return ((void *)str);
+		str++;
+	}
+	return (0);
+}

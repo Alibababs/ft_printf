@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pbailly <pbailly@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 14:19:00 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/30 19:20:07 by alibaba          ###   ########.fr       */
+/*   Created: 2024/05/27 19:19:55 by pbailly           #+#    #+#             */
+/*   Updated: 2024/05/27 19:39:41 by pbailly          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-
-int	ft_printfchar(char c);
-int	ft_printfstr(char *str);
-int	ft_printfnbr(int n);
-
-#endif
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
+}

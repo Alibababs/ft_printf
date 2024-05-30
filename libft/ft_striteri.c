@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pbailly <pbailly@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 14:19:00 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/30 19:20:07 by alibaba          ###   ########.fr       */
+/*   Created: 2024/05/27 16:04:57 by pbailly           #+#    #+#             */
+/*   Updated: 2024/05/27 16:10:58 by pbailly          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	size_t	i;
 
-int	ft_printfchar(char c);
-int	ft_printfstr(char *str);
-int	ft_printfnbr(int n);
-
-#endif
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
+}

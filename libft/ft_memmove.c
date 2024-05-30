@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 14:19:00 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/30 19:20:07 by alibaba          ###   ########.fr       */
+/*   Created: 2024/05/25 16:06:44 by alibaba           #+#    #+#             */
+/*   Updated: 2024/05/25 17:58:15 by alibaba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	char	*d;
+	char	*s;
+	size_t	i;
 
-int	ft_printfchar(char c);
-int	ft_printfstr(char *str);
-int	ft_printfnbr(int n);
-
-#endif
+	d = (char *)dest;
+	s = (char *)src;
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	if (d > s)
+	{
+		while (n--)
+		{
+			d[n] = s[n];
+		}
+	}
+	else
+	{
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	return (dest);
+}

@@ -1,46 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfnbr.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 16:58:41 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/30 19:24:26 by alibaba          ###   ########.fr       */
+/*   Created: 2024/05/25 17:45:39 by alibaba           #+#    #+#             */
+/*   Updated: 2024/05/25 18:00:14 by alibaba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int     count_size(long int n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-        size_t  i;
+	size_t	len;
+	size_t	i;
 
-        i = 0;
-        if (n == 0)
-                return (1);
-        if (n < 0)
-                n *= -1;
-        while (n)
-        {
-                n /= 10;
-                i++;
-        }
-        return (i);
-}
-
-int	ft_printfnbr(int n)
-{
-	int	len;
-
-	len = 0;
-	if (n == -2147483648)
-	{
-		len = ft_putstr("-2147483648");
+	len = ft_strlen(src);
+	i = 0;
+	if (!size)
 		return (len);
+	while (src[i] && i < size - 1)
+	{
+		dst[i] = src[i];
+		i++;
 	}
-
-
-
+	dst[i] = '\0';
 	return (len);
 }

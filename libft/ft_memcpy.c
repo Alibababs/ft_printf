@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 14:19:00 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/30 19:20:07 by alibaba          ###   ########.fr       */
+/*   Created: 2024/05/25 16:06:50 by alibaba           #+#    #+#             */
+/*   Updated: 2024/05/25 16:52:58 by alibaba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
 
-int	ft_printfchar(char c);
-int	ft_printfstr(char *str);
-int	ft_printfnbr(int n);
-
-#endif
+	if (!dest && !src)
+		return (dest);
+	i = 0;
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
+}
