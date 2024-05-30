@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printfstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbailly <pbailly@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:48 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/24 17:32:41 by pbailly          ###   ########.fr       */
+/*   Updated: 2024/05/30 19:13:41 by alibaba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_printfstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		ft_putchar(i);
+		write(1, &i, 1);
 		i++;
 	}
 	return (i);

@@ -4,7 +4,7 @@ CC = cc
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_printfchar.c ft_printfnbr.c ft_printfpercent.c ft_printfstr.c
+SRC = ft_printf.c ft_printfchar.c ft_printfnbr.c ft_printfstr.c
 
 OBJ = ${SRC:.c=.o}
 

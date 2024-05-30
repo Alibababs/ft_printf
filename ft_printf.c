@@ -3,40 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbailly <pbailly@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:14:50 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/28 15:31:42 by pbailly          ###   ########.fr       */
+/*   Updated: 2024/05/30 19:16:00 by alibaba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format(va_list args, const char form)
+static int	format(va_list args, const char form)
 {
-	int	i;
-	int	len;
-
-	len = 0;
 	if (form == 'c')
-		len += ft_printfchar(form);
-	if (form == 's')
-		len += ft_printfstr(form);
-	if (form == 'p')
-		len += ft_printf(form); // TODO
-	if (form == 'd')
-		len += ft_printfnbr(form);
-	if (form == 'i')
-		len += ft_printf; // TODO
-	if (form == 'u')
-		len += ft_printf; // TODO
-	if (form == 'x')
-		len += ft_printf; // TODO
-	if (form == 'X')
-		len += ft_printf; // TODO
-	if (form == '%')
-		len += ft_printfpercent(form);
-	return (len);
+		return (ft_printfchar(va_arg(args, int)));
+	else if (form == 's')
+		(ft_printfstr(va_arg(args, char *)));
+//	else if (form == 'p')
+//		return(ft_printf(form)); // TODO
+//	else if (form == 'd' || form == 'i')
+//		return(ft_printfnbr(va_arg(args, int)));
+//	else if (form == 'u')
+//		return(ft_printf); // TODO
+//	else if (form == 'x' || form == 'X')
+//		return(ft_printf); // TODO
+	else if (form == '%')
+		return (ft_printfchar('%'));
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
@@ -45,12 +37,15 @@ int	ft_printf(const char *str, ...)
 	int		i;
 	va_list	args;
 
+	i = 0;
+	len = 0;
+	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == %)
+		if (str[i] == '%')
 		{
-			len += format(args, str[i + 1]);
 			i++;
+			len += format(args, str[i]);
 		}
 		else
 		{
@@ -58,5 +53,6 @@ int	ft_printf(const char *str, ...)
 		}
 		i++;
 	}
+	va_end(args);
 	return (len);
 }
