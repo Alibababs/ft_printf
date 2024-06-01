@@ -6,7 +6,7 @@
 /*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:38:48 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/30 19:29:54 by alibaba          ###   ########.fr       */
+/*   Updated: 2024/06/01 14:47:29 by alibaba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ int	ft_printfstr(char *str)
 	size_t	i;
 
 	i = 0;
+	if (!str)
+		return(ft_printfstr("(null)"));
 	while (str[i])
 	{
-		write(1, &i, 1);
+		write(1, &str[i], 1);
 		i++;
 	}
 	return (i);

@@ -6,7 +6,7 @@
 /*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:14:50 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/30 19:31:52 by alibaba          ###   ########.fr       */
+/*   Updated: 2024/06/01 15:06:22 by alibaba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static int	format(va_list args, const char form)
 	if (form == 'c')
 		return (ft_printfchar(va_arg(args, int)));
 	else if (form == 's')
-		(ft_printfstr(va_arg(args, char *)));
+		return (ft_printfstr(va_arg(args, char *)));
 //	else if (form == 'p')
-//		return(ft_printf(form)); // TODO
-//	else if (form == 'd' || form == 'i')
-//		return(ft_printfnbr(va_arg(args, int)));
-//	else if (form == 'u')
-//		return(ft_printf); // TODO
+//		return(ft_printf(form))
+	else if (form == 'd' || form == 'i')
+		return(ft_printfnbr(va_arg(args, int)));
+	else if (form == 'u')
+		return(ft_printf_unsigned_nbr(va_arg(args, unsigned int)));
 //	else if (form == 'x' || form == 'X')
 //		return(ft_printf); // TODO
 	else if (form == '%')
@@ -49,7 +49,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			len += ft_printfchar(i);
+			len += ft_printfchar(str[i]);
 		}
 		i++;
 	}
