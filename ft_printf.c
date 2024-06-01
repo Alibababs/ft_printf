@@ -6,7 +6,7 @@
 /*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:14:50 by pbailly           #+#    #+#             */
-/*   Updated: 2024/06/01 15:06:22 by alibaba          ###   ########.fr       */
+/*   Updated: 2024/06/01 19:17:37 by alibaba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ static int	format(va_list args, const char form)
 		return (ft_printfchar(va_arg(args, int)));
 	else if (form == 's')
 		return (ft_printfstr(va_arg(args, char *)));
-//	else if (form == 'p')
-//		return(ft_printf(form))
+	else if (form == 'p')
+		return (ft_printf_p(va_arg(args, void *), form));
 	else if (form == 'd' || form == 'i')
-		return(ft_printfnbr(va_arg(args, int)));
+		return (ft_printfnbr(va_arg(args, int)));
 	else if (form == 'u')
-		return(ft_printf_unsigned_nbr(va_arg(args, unsigned int)));
-//	else if (form == 'x' || form == 'X')
-//		return(ft_printf); // TODO
+		return (ft_printf_unsigned_nbr(va_arg(args, unsigned int)));
+	else if (form == 'x' || form == 'X')
+		return (ft_printf_hexa(va_arg(args, unsigned int), form));
 	else if (form == '%')
 		return (ft_printfchar('%'));
 	return (0);
