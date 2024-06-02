@@ -6,7 +6,7 @@
 /*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:14:50 by pbailly           #+#    #+#             */
-/*   Updated: 2024/06/01 19:17:37 by alibaba          ###   ########.fr       */
+/*   Updated: 2024/06/02 13:09:10 by alibaba          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	format(va_list args, const char form)
 	else if (form == 'u')
 		return (ft_printf_unsigned_nbr(va_arg(args, unsigned int)));
 	else if (form == 'x' || form == 'X')
-		return (ft_printf_hexa(va_arg(args, unsigned int), form));
+		return (ft_printf_x(va_arg(args, unsigned long int), form));
 	else if (form == '%')
 		return (ft_printfchar('%'));
 	return (0);
